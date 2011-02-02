@@ -19,6 +19,7 @@
 
 - (LQHTTPRequestCallback)getPlaceListCallback;
 
+- (void)addReloadingMenuItem;
 - (void)reloadPlaces:(id)sender;
 - (void)clickedMenuItem:(id)sender;
 - (void)showGeonotePrompt:(id)sender;

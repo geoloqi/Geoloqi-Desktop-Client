@@ -15,6 +15,7 @@
 @synthesize theMenu;
 @synthesize places;
 
+
 - (void)awakeFromNib
 {
 	statusItem = [[[NSStatusBar systemStatusBar] 
@@ -29,15 +30,20 @@
 	
 	[statusItem setMenu:self.theMenu];
 	
-	NSMenuItem *loadingItem = [[NSMenuItem alloc] initWithTitle:@"Click to Reload Places" action:nil keyEquivalent:@""];
+	[self reloadPlaces:nil];
+	
+	[self addReloadingMenuItem];
+}
+
+- (void)addReloadingMenuItem
+{
+	NSMenuItem *loadingItem = [[NSMenuItem alloc] initWithTitle:@"Reload List" action:nil keyEquivalent:@""];
 	[loadingItem setAction:@selector(clickedMenuItem:)];
 	[loadingItem setTarget:self];
 	[loadingItem setTag:1];
 	[self.theMenu addItem:loadingItem];
 	[loadingItem release];
-	
 }
-
 
 - (void)reloadPlaces:(id)sender
 {
@@ -49,7 +55,7 @@
 			 callback:[self getPlaceListCallback]
 				  url:[NSURL URLWithString:@"http://api.geoloqi.local/1/"]];
 	
-	NSLog(@"Fetching layer");
+	NSLog(@"Fetching places");
 }
 
 
@@ -109,6 +115,7 @@
 			
 			self.places = nil;
 			self.places = [[NSMutableArray alloc] initWithCapacity:[[res objectForKey:@"places"] count]];
+			[self.theMenu removeAllItems];
 
 			NSInteger i = 0;
 			for( NSMutableDictionary *place in [res objectForKey:@"places"] )
@@ -122,6 +129,9 @@
 				[newItem release];
 				i++;
 			}
+			
+			[self.theMenu addItem:[NSMenuItem separatorItem]];
+			[self addReloadingMenuItem];
         }
 		else 
 		{
