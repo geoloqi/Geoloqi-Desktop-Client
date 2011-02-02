@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F0BB14012F8D9B000BFD765 /* LQLoadingMenuItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F0BB13F12F8D9B000BFD765 /* LQLoadingMenuItem.xib */; };
 		0FACA16B12F85E6600A3BB1F /* LQMenulet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FACA16A12F85E6600A3BB1F /* LQMenulet.m */; };
 		0FACA1D212F86E8700A3BB1F /* loqisaur-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FACA1D112F86E8700A3BB1F /* loqisaur-menu.png */; };
 		0FACA20F12F8882700A3BB1F /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FACA1FA12F8882700A3BB1F /* CDataScanner.m */; };
@@ -19,6 +20,7 @@
 		0FACA21612F8882700A3BB1F /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FACA20A12F8882700A3BB1F /* CJSONScanner.m */; };
 		0FACA21712F8882700A3BB1F /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FACA20C12F8882700A3BB1F /* CJSONSerializer.m */; };
 		0FACA21812F8882700A3BB1F /* CSerializedJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FACA20E12F8882700A3BB1F /* CSerializedJSONData.m */; };
+		0FACA27312F8995400A3BB1F /* LQHTTPRequestLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FACA27212F8995400A3BB1F /* LQHTTPRequestLoader.m */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* Geoloqi_MacAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* Geoloqi_MacAppDelegate.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -28,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0F0BB13F12F8D9B000BFD765 /* LQLoadingMenuItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LQLoadingMenuItem.xib; sourceTree = "<group>"; };
 		0FACA16912F85E6600A3BB1F /* LQMenulet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQMenulet.h; sourceTree = "<group>"; };
 		0FACA16A12F85E6600A3BB1F /* LQMenulet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQMenulet.m; sourceTree = "<group>"; };
 		0FACA1D112F86E8700A3BB1F /* loqisaur-menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "loqisaur-menu.png"; path = "Resources/loqisaur-menu.png"; sourceTree = "<group>"; };
@@ -51,6 +54,8 @@
 		0FACA20C12F8882700A3BB1F /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializer.m; sourceTree = "<group>"; };
 		0FACA20D12F8882700A3BB1F /* CSerializedJSONData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSerializedJSONData.h; sourceTree = "<group>"; };
 		0FACA20E12F8882700A3BB1F /* CSerializedJSONData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSerializedJSONData.m; sourceTree = "<group>"; };
+		0FACA27112F8995400A3BB1F /* LQHTTPRequestLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQHTTPRequestLoader.h; sourceTree = "<group>"; };
+		0FACA27212F8995400A3BB1F /* LQHTTPRequestLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQHTTPRequestLoader.m; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -81,6 +86,8 @@
 			children = (
 				0FACA16912F85E6600A3BB1F /* LQMenulet.h */,
 				0FACA16A12F85E6600A3BB1F /* LQMenulet.m */,
+				0FACA27112F8995400A3BB1F /* LQHTTPRequestLoader.h */,
+				0FACA27212F8995400A3BB1F /* LQHTTPRequestLoader.m */,
 				256AC3D80F4B6AC300CF3369 /* Geoloqi_MacAppDelegate.h */,
 				256AC3D90F4B6AC300CF3369 /* Geoloqi_MacAppDelegate.m */,
 			);
@@ -193,6 +200,7 @@
 				8D1107310486CEB800E47090 /* Geoloqi_Mac-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
+				0F0BB13F12F8D9B000BFD765 /* LQLoadingMenuItem.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -259,6 +267,7 @@
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				0FACA1D212F86E8700A3BB1F /* loqisaur-menu.png in Resources */,
+				0F0BB14012F8D9B000BFD765 /* LQLoadingMenuItem.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +291,7 @@
 				0FACA21612F8882700A3BB1F /* CJSONScanner.m in Sources */,
 				0FACA21712F8882700A3BB1F /* CJSONSerializer.m in Sources */,
 				0FACA21812F8882700A3BB1F /* CSerializedJSONData.m in Sources */,
+				0FACA27312F8995400A3BB1F /* LQHTTPRequestLoader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
