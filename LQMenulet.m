@@ -14,7 +14,8 @@
 
 @synthesize theMenu;
 @synthesize places;
-
+@synthesize window;
+@synthesize appController;
 
 - (void)awakeFromNib
 {
@@ -22,7 +23,7 @@
 				   statusItemWithLength:NSVariableStatusItemLength]
 				  retain];
 	[statusItem setHighlightMode:YES];
-	[statusItem setTitle:@""];
+	// [statusItem setTitle:@"2011-240"];
 	[statusItem setImage:[NSImage imageNamed:@"loqisaur-menu.png"]];
 	[statusItem setHighlightMode:YES];
 	[statusItem setEnabled:YES];
@@ -30,6 +31,9 @@
 	
 	[statusItem setMenu:self.theMenu];
 	
+	NSLog(@"Window: %@", self.window);
+	[self.window setIsVisible:NO];
+
 	[self reloadPlaces:nil];
 	
 	[self addReloadingMenuItem];
@@ -48,10 +52,10 @@
 - (void)reloadPlaces:(id)sender
 {
 	[self callAPIPath:@"place/list"
-			   method:@"POST"
+			   method:@"GET"
    includeAccessToken:YES 
 	includeClientCred:NO 
-			 postBody:@"layer_type=autocheckin"
+			 postBody:nil
 			 callback:[self getPlaceListCallback]
 				  url:[NSURL URLWithString:@"http://api.geoloqi.local/1/"]];
 	
@@ -66,14 +70,14 @@
 		return;
 	}
 	
+	[NSApp activateIgnoringOtherApps:YES];
+	[NSApp orderFrontStandardAboutPanel:self];
+	
+	LQGeonoteWindow *geonoteWindowController = [[LQGeonoteWindow alloc] init];
+	[NSApp activateIgnoringOtherApps:YES];
+	[geonoteWindowController showWindow:self];
 	
 	NSLog(@"Clicked %d: %@", sender.tag, sender);
-}
-
-- (void)showGeonotePrompt:(NSMenuItem *)sender
-{
-	NSLog(@"Clicked a place!!");
-	NSLog(@"Place: %d %@", sender.tag, [self.places objectAtIndex:sender.tag]);
 }
 
 
@@ -90,7 +94,7 @@
     
 	[req setHTTPMethod:httpMethod];
 	[req setValue:@"Geoloqi Mac" forHTTPHeaderField:@"Geoloqi-Client"];
-	[req setValue:@"OAuth 3e8-feba61b179ec1edf7e6808878983fb3a36615ac3" forHTTPHeaderField:@"Authorization"];
+	[req setValue:@"OAuth 3e8-f756886b728b718e8932fbcff3eeb442e7776708" forHTTPHeaderField:@"Authorization"];
 	[req setHTTPBody:[postBody dataUsingEncoding:NSUTF8StringEncoding]];
 	
 	[LQHTTPRequestLoader loadRequest:req callback:callback];
@@ -123,7 +127,7 @@
 				[self.places insertObject:place atIndex:i];
 				NSMenuItem *newItem = [[NSMenuItem alloc] initWithTitle:[place objectForKey:@"name"]
 														action:@selector(showGeonotePrompt:) keyEquivalent:@""];
-				[newItem setTarget:self];
+				[newItem setTarget:appController];
 				[newItem setTag:i];
 				[self.theMenu addItem:newItem];
 				[newItem release];
@@ -143,6 +147,9 @@
 
 -(void)dealloc
 {
+	[appController release];
+	[places release];
+	[window release];
     [statusItem release];
 	[super dealloc];
 }

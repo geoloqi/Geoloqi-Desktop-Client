@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "LQHTTPRequestLoader.h"
+#import "Geoloqi_MacAppDelegate.h"
+#import "LQGeonoteWindow.h"
+#import "LQAppController.h"
 
 @interface LQMenulet : NSObject {
 	NSStatusItem *statusItem;
@@ -15,6 +18,7 @@
 	NSMenuItem *ipMenuItem;
 	NSMutableArray *places;
 	LQHTTPRequestCallback getPlaceListCallback;
+	IBOutlet LQAppController *appController;
 }
 
 - (LQHTTPRequestCallback)getPlaceListCallback;
@@ -22,7 +26,6 @@
 - (void)addReloadingMenuItem;
 - (void)reloadPlaces:(id)sender;
 - (void)clickedMenuItem:(id)sender;
-- (void)showGeonotePrompt:(id)sender;
 
 - (void)callAPIPath:(NSString *)path
 			 method:(NSString *)httpMethod
@@ -32,7 +35,9 @@
 		   callback:(LQHTTPRequestCallback)callback
 				url:(NSURL *)URL;
 	
+@property (nonatomic, retain) IBOutlet NSWindow *window;
 @property (nonatomic, retain) IBOutlet NSMenu *theMenu;
 @property (nonatomic, retain) NSMutableArray *places;
+@property (nonatomic, retain) IBOutlet LQAppController *appController;
 
 @end
