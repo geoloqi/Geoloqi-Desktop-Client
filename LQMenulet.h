@@ -12,6 +12,9 @@
 #import "LQGeonoteWindow.h"
 #import "LQAppController.h"
 
+// Get an access token here: https://developers.geoloqi.com/getting-started
+#define LQ_ACCESS_TOKEN @"" 
+
 @interface LQMenulet : NSObject {
 	NSStatusItem *statusItem;
 	IBOutlet NSMenu *theMenu;

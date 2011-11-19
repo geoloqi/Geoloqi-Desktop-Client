@@ -57,7 +57,7 @@
 	includeClientCred:NO 
 			 postBody:nil
 			 callback:[self getPlaceListCallback]
-				  url:[NSURL URLWithString:@"http://api.geoloqi.local/1/"]];
+				  url:[NSURL URLWithString:@"https://api.geoloqi.com/1/"]];
 	
 	NSLog(@"Fetching places");
 }
@@ -72,12 +72,13 @@
 	
 	[NSApp activateIgnoringOtherApps:YES];
 	[NSApp orderFrontStandardAboutPanel:self];
-	
+
+	// TODO: Make this open the geonote window
 	LQGeonoteWindow *geonoteWindowController = [[LQGeonoteWindow alloc] init];
 	[NSApp activateIgnoringOtherApps:YES];
 	[geonoteWindowController showWindow:self];
 	
-	NSLog(@"Clicked %d: %@", sender.tag, sender);
+	NSLog(@"Clicked %@: %@", sender.tag, sender);
 }
 
 
@@ -94,7 +95,7 @@
     
 	[req setHTTPMethod:httpMethod];
 	[req setValue:@"Geoloqi Mac" forHTTPHeaderField:@"Geoloqi-Client"];
-	[req setValue:@"OAuth 3e8-f756886b728b718e8932fbcff3eeb442e7776708" forHTTPHeaderField:@"Authorization"];
+	[req setValue:[NSString stringWithFormat:@"OAuth %@", LQ_ACCESS_TOKEN] forHTTPHeaderField:@"Authorization"];
 	[req setHTTPBody:[postBody dataUsingEncoding:NSUTF8StringEncoding]];
 	
 	[LQHTTPRequestLoader loadRequest:req callback:callback];
