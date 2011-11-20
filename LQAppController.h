@@ -7,14 +7,18 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
+#import "LQGeonoteWindow.h"
 
 @interface LQAppController : NSObject {
-
+	LQGeonoteWindow *geonoteWindowController;
 }
+
+
+- (void)showGeonotePrompt:(NSMenuItem *)sender;
+
+
 
 @property (nonatomic, retain) NSMenu *menu;
 
-- (void)showGeonotePrompt:(NSMenuItem *)sender;
 
 @end
