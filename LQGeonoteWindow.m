@@ -11,7 +11,7 @@
 
 @implementation LQGeonoteWindow
 
-@synthesize window, geonoteText, placeName, createBtn;
+
 
 - (id)init
 {
@@ -19,13 +19,12 @@
 	if(!self){
 		return nil;
 	}
-	NSLog(@"Geonote window: %@", self.window);
+
 	return self;
 }
 
 - (IBAction)showWindow:(id)sender
 {
-	NSLog(@"Window: %@ %@", self.window, self.geonoteText);
 	[[self window] center];
 	[super showWindow:sender];
 }

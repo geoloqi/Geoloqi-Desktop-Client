@@ -57,12 +57,14 @@
 	callback = [block copy];
 }
 
-- (void)connection:(NSURLConnection *)conn didReceiveResponse:(NSURLResponse *)response {
+- (void)connection:(NSURLConnection *)conn didReceiveResponse:(NSURLResponse *)response 
+{
 	[data release];
 	data = [[NSMutableData alloc] init];
 }
 
-- (void)connection:(NSURLConnection *)conn didReceiveData:(NSData *)newData {
+- (void)connection:(NSURLConnection *)conn didReceiveData:(NSData *)newData 
+{
 	[data appendData:newData];
 }
 
@@ -73,11 +75,16 @@
 	data = nil;
 }
 
-- (void)connection:(NSURLConnection *)conn didFailWithError:(NSError *)error {
+
+
+- (void)connection:(NSURLConnection *)conn didFailWithError:(NSError *)error 
+{
 	callback(error, nil);
 	[data release];
 	data = nil;
 }
+
+
 
 - (void)dealloc {
 	[data release];

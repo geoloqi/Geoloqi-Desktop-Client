@@ -19,4 +19,13 @@ typedef void (^LQHTTPRequestCallback)(NSError *error, NSString *responseBody);
 + (void)loadRequest:(NSURLRequest *)request
 		   callback:(LQHTTPRequestCallback)block;
 
+- (void)loadRequest:(NSURLRequest *)request;
+
+- (void)connection:(NSURLConnection *)conn didReceiveResponse:(NSURLResponse *)response;
+
+- (void)connection:(NSURLConnection *)conn didReceiveData:(NSData *)newData;
+
+- (void)connection:(NSURLConnection *)conn didFailWithError:(NSError *)error;
+
+
 @end
