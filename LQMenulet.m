@@ -12,10 +12,7 @@
 
 @implementation LQMenulet
 
-@synthesize theMenu;
 @synthesize places;
-@synthesize window;
-@synthesize appController;
 
 - (void)awakeFromNib
 {
@@ -29,10 +26,10 @@
 	[statusItem setEnabled:YES];
 	[statusItem setToolTip:@"Geoloqi"];
 	
-	[statusItem setMenu:self.theMenu];
+	[statusItem setMenu:theMenu];
 	
-	NSLog(@"Window: %@", self.window);
-	[self.window setIsVisible:NO];
+	NSLog(@"Window: %@", window);
+	[window setIsVisible:NO];
 
 	[self reloadPlaces:nil];
 	
@@ -45,7 +42,7 @@
 	[loadingItem setAction:@selector(clickedMenuItem:)];
 	[loadingItem setTarget:self];
 	[loadingItem setTag:1];
-	[self.theMenu addItem:loadingItem];
+	[theMenu addItem:loadingItem];
 	[loadingItem release];
 }
 
@@ -120,7 +117,7 @@
 			
 			self.places = nil;
 			self.places = [[NSMutableArray alloc] initWithCapacity:[[res objectForKey:@"places"] count]];
-			[self.theMenu removeAllItems];
+			[theMenu removeAllItems];
 
 			NSInteger i = 0;
 			for( NSMutableDictionary *place in [res objectForKey:@"places"] )
@@ -130,12 +127,12 @@
 														action:@selector(showGeonotePrompt:) keyEquivalent:@""];
 				[newItem setTarget:appController];
 				[newItem setTag:i];
-				[self.theMenu addItem:newItem];
+				[theMenu addItem:newItem];
 				[newItem release];
 				i++;
 			}
 			
-			[self.theMenu addItem:[NSMenuItem separatorItem]];
+			[theMenu addItem:[NSMenuItem separatorItem]];
 			[self addReloadingMenuItem];
         }
 		else 

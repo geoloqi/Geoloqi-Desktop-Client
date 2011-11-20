@@ -16,12 +16,16 @@
 #define LQ_ACCESS_TOKEN @"" 
 
 @interface LQMenulet : NSObject {
+
 	NSStatusItem *statusItem;
-	IBOutlet NSMenu *theMenu;
+
 	NSMenuItem *ipMenuItem;
 	NSMutableArray *places;
 	LQHTTPRequestCallback getPlaceListCallback;
-	IBOutlet LQAppController *appController;
+
+	IBOutlet NSMenu *theMenu;
+	IBOutlet NSWindow *window;
+	IBOutlet LQAppController *appController;	
 }
 
 - (LQHTTPRequestCallback)getPlaceListCallback;
@@ -37,10 +41,10 @@
 		   postBody:(NSString *)postBody
 		   callback:(LQHTTPRequestCallback)callback
 				url:(NSURL *)URL;
-	
-@property (nonatomic, retain) IBOutlet NSWindow *window;
-@property (nonatomic, retain) IBOutlet NSMenu *theMenu;
+
+
+
 @property (nonatomic, retain) NSMutableArray *places;
-@property (nonatomic, retain) IBOutlet LQAppController *appController;
+
 
 @end

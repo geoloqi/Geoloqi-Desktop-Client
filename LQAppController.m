@@ -18,9 +18,17 @@
 	NSLog(@"Clicked a place!!");
 	// NSLog(@"Place: %d %@", sender.tag, [self.places objectAtIndex:sender.tag]);
 	
-	LQGeonoteWindow *geonoteWindowController = [[LQGeonoteWindow alloc] init];
+	geonoteWindowController = [[LQGeonoteWindow alloc] init];
 	[NSApp activateIgnoringOtherApps:YES];
 	[geonoteWindowController showWindow:self];
+}
+
+
+
+- (void) dealloc
+{
+	[geonoteWindowController release];
+	[super dealloc];
 }
 
 @end

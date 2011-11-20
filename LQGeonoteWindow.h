@@ -10,12 +10,13 @@
 
 
 @interface LQGeonoteWindow : NSWindowController {
-
+	IBOutlet NSWindow *window;
+	IBOutlet NSTextField *geonoteText;
+	IBOutlet NSTextField *placeName;
+	IBOutlet NSButton *createBtn;			
 }
 
-@property (nonatomic, retain) IBOutlet NSWindow *window;
-@property (nonatomic, retain) IBOutlet NSTextField *geonoteText;
-@property (nonatomic, retain) IBOutlet NSTextField *placeName;
-@property (nonatomic, retain) IBOutlet NSButton *createBtn;
+
+- (IBAction)showWindow:(id)sender;
 
 @end
